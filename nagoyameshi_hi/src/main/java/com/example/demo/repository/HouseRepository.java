@@ -28,6 +28,6 @@ public interface HouseRepository extends JpaRepository<House, Integer> {
 	public Page<House> findAllByOrderByCreatedAtDesc(Pageable pageable);
 
 	public Page<House> findAllByOrderByPriceAsc(Pageable pageable);
-
+	
 	public List<House> findTop10ByOrderByCreatedAtDesc();
 }
