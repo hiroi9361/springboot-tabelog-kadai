@@ -35,7 +35,7 @@
 
 						<div class="card mb-3">
 							<div class="card-header">
-								エリアから探す
+								カテゴリから探す
 							</div>
 							<div class="card-body">
 								<form method="get" th:action="@{/houses}" class="w-100">
@@ -198,7 +198,7 @@
 
 												<p class="card-text">
 													<span
-														th:text="${#numbers.formatInteger(house.getPrice(), 1, 'COMMA') + '円 / 泊'}"></span>
+														th:text="${#numbers.formatInteger(house.getPrice(), 1, 'COMMA') + '円 / コース'}"></span>
 												</p>
 											</div>
 										</div>

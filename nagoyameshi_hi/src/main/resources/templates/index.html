@@ -39,8 +39,83 @@
 						</div>
 					</form>
 				</div>
-
+				
+				<div class="card mb-3">
+					<div class="card-header">
+						カテゴリから探す
+					</div>
+					<div class="card-body">
+						<form method="get" th:action="@{/houses}" class="w-100">
+							<div class="form-group mb-3">
+								<select class="form-control form-select" name="area">
+									<option value="" hidden>選択してください</option>
+										<option value="北海道" th:selected="${area == '北海道'}">新着</option>
+										<option value="ラーメン" th:selected="${area == '青森県'}">ラーメン</option>
+										<option value="茨城県" th:selected="${area == '茨城県'}">居酒屋</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn text-white shadow-sm w-100 nagoyameshi-btn">検索</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				
 				<h2 class="text-center mb-3">新着</h2>
+				<div class="row row-cols-lg-5 row-cols-2 g-3 mb-5">
+					<div class="col" th:each="newHouse : ${newHouses}">
+						<a th:href="@{/houses/__${newHouse.getId()}__}" class="link-dark nagoyameshi-card-link">
+							<div class="card h-100">
+								<img th:if="${newHouse.getImageName()}"
+									th:src="@{/storage/__${newHouse.getImageName()}__}"
+									class="card-img-top nagoyameshi-vertical-card-image" alt="店舗画像">
+								<img th:unless="${newHouse.getImageName()}" th:src="@{/images/noImage.png}"
+									class="card-img-top nagoyameshi-vertical-card-image" alt="NO IMAGE">
+								<div class="card-body">
+									<h3 class="card-title" th:text="${newHouse.getName()}"></h3>
+									<p class="card-text mb-1">
+										<small class="text-muted" th:text="${newHouse.getAddress()}"></small>
+									</p>
+									<p class="card-text">
+										<span
+											th:text="${#numbers.formatInteger(newHouse.getPrice(), 1, 'COMMA') + '円 / コース'}"></span>
+									</p>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<hr>
+
+				<h2 class="text-center mb-3">ラーメン</h2>
+				<div class="row row-cols-lg-5 row-cols-2 g-3 mb-5">
+					<div class="col" th:each="newHouse : ${newHouses}">
+						<a th:href="@{/houses/__${newHouse.getId()}__}" class="link-dark nagoyameshi-card-link">
+							<div class="card h-100">
+								<img th:if="${newHouse.getImageName()}"
+									th:src="@{/storage/__${newHouse.getImageName()}__}"
+									class="card-img-top nagoyameshi-vertical-card-image" alt="店舗画像">
+								<img th:unless="${newHouse.getImageName()}" th:src="@{/images/noImage.png}"
+									class="card-img-top nagoyameshi-vertical-card-image" alt="NO IMAGE">
+								<div class="card-body">
+									<h3 class="card-title" th:text="${newHouse.getName()}"></h3>
+									<p class="card-text mb-1">
+										<small class="text-muted" th:text="${newHouse.getAddress()}"></small>
+									</p>
+									<p class="card-text">
+										<span
+											th:text="${#numbers.formatInteger(newHouse.getPrice(), 1, 'COMMA') + '円 / コース'}"></span>
+									</p>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<hr>
+
+				<h2 class="text-center mb-3">居酒屋</h2>
 				<div class="row row-cols-lg-5 row-cols-2 g-3 mb-5">
 					<div class="col" th:each="newHouse : ${newHouses}">
 						<a th:href="@{/houses/__${newHouse.getId()}__}" class="link-dark nagoyameshi-card-link">
