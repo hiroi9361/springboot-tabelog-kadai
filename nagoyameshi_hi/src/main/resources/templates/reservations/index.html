@@ -50,7 +50,8 @@
 									<td th:text="${reservation.getCheckoutDate()}"></td>
 									<td th:text="${reservation.getNumberOfPeople + '名'}"></td>
 									<td th:text="${#numbers.formatInteger(reservation.getAmount(), 1, 'COMMA') + '円'}">
-									</td>
+										
+									
 								</tr>
 							</tbody>
 						</table>
