@@ -28,4 +28,10 @@ public class UserEditForm {
 
 	@NotBlank(message = "メールアドレスを入力してください。")
 	private String email;
+
+	@NotBlank(message = "職業を入力してください。")
+	private String profession;
+
+	@NotBlank(message = "年齢を入力してください。")
+	private Integer age;
 }

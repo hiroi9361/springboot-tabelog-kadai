@@ -99,7 +99,7 @@
 									<li th:each="i : ${#numbers.sequence(0, housePage.getTotalPages() - 1)}"
 										class="page-item">
 										<span th:if="${i == housePage.getNumber()}"
-											class="page-link active samuraitravel-active" th:text="${i + 1}"></span>
+											class="page-link active nagoyameshi-active" th:text="${i + 1}"></span>
 										<a th:unless="${i == housePage.getNumber()}"
 											th:href="@{/admin/houses(page = ${i}, keyword = ${keyword})}"
 											class="page-link nagoyameshi-page-link" th:text="${i + 1}"></a>

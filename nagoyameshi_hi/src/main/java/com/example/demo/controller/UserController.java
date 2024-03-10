@@ -42,7 +42,7 @@ public class UserController {
 	public String edit(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model) {
 		User user = userRepository.getReferenceById(userDetailsImpl.getUser().getId());
 		UserEditForm userEditForm = new UserEditForm(user.getId(), user.getName(), user.getFurigana(),
-				user.getPostalCode(), user.getAddress(), user.getPhoneNumber(), user.getEmail());
+				user.getPostalCode(), user.getAddress(), user.getPhoneNumber(), user.getEmail(), user.getProfession(),user.getAge());
 
 		model.addAttribute("userEditForm", userEditForm);
 
